@@ -78,17 +78,19 @@ namespace SuperrHero.Controllers
         // GET: SuperHeroes/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            return View(db.SuperHeroes.Find(id));
         }
 
         // POST: SuperHeroes/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, SuperHero Hero)
         {
             try
             {
                 // TODO: Add delete logic here
-
+                var superHeroFromDb = db.SuperHeroes.Find(id);
+                db.SuperHeroes.Remove(superHeroFromDb);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
