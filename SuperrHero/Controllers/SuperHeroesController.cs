@@ -50,7 +50,7 @@ namespace SuperrHero.Controllers
         // GET: SuperHeroes/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(db.SuperHeroes.Where(c => c.Id == id).Single());
         }
 
         // POST: SuperHeroes/Edit/5
