@@ -20,7 +20,6 @@ namespace SuperrHero.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public DbSet<SuperHero> SuperHero { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
@@ -31,6 +30,6 @@ namespace SuperrHero.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<SuperrHero.Models.SuperHero> SuperHeroes { get; set; }
+        public DbSet<SuperHero> SuperHeroes { get; set; }
     }
 }
