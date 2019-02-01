@@ -55,12 +55,18 @@ namespace SuperrHero.Controllers
 
         // POST: SuperHeroes/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, SuperHero Hero)
         {
             try
             {
                 // TODO: Add update logic here
-
+                var superHeroFromDb = db.SuperHeroes.Where(c => c.Id == id).Single();
+                superHeroFromDb.Name = Hero.Name;
+                superHeroFromDb.AlterEgo = Hero.AlterEgo;
+                superHeroFromDb.PrimaryAbility = Hero.PrimaryAbility;
+                superHeroFromDb.SecondaryAbility = Hero.SecondaryAbility;
+                superHeroFromDb.Catchphrase = Hero.Catchphrase;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
