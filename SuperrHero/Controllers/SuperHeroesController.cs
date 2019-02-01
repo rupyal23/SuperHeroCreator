@@ -20,9 +20,8 @@ namespace SuperrHero.Controllers
         // GET: SuperHeroes/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            return View(db.SuperHeroes.Where(a => a.Id == id).Single());
         }
-
         // GET: SuperHeroes/Create
         public ActionResult Create()
         {
@@ -36,7 +35,7 @@ namespace SuperrHero.Controllers
             try
             {
                 // TODO: Add insert logic here
-                
+                //Done - Working
                 db.SuperHeroes.Add(Hero);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -60,6 +59,7 @@ namespace SuperrHero.Controllers
             try
             {
                 // TODO: Add update logic here
+                //Done - Working
                 var superHeroFromDb = db.SuperHeroes.Where(c => c.Id == id).Single();
                 superHeroFromDb.Name = Hero.Name;
                 superHeroFromDb.AlterEgo = Hero.AlterEgo;
