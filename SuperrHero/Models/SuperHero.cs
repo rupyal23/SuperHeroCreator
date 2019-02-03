@@ -15,7 +15,5 @@ namespace SuperrHero.Models
         public string PrimaryAbility { get; set; }
         public string SecondaryAbility { get; set; }
         public string Catchphrase { get; set; }
-
-
     }
 }
