@@ -53,7 +53,24 @@
     </dl>
 </div>
 <div class="col-4">
-    <img src="~/Content/images/Nagraj.jpg" />
+    @if (Model.Id == 1)
+    {
+        <img src="~/Content/images/Nagraj.jpg" />
+    }
+    @if (Model.Id == 3)
+    {
+        <img src="~/Content/images/Doga.jpg" />
+    }
+    @if (Model.Id == 5)
+    {
+        <img src="~/Content/images/Bhokal.jpg" />
+    }
+    @if (Model.Id == 4)
+    {
+        <img src="~/Content/images/Super_Commando_Dhruva.jpg" />
+    }
+
+
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
